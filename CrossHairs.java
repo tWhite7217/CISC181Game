@@ -1,7 +1,10 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
-/**
- * Created by Ryan Petery on 4/11/2018.
+/*
+Ryan Petery and Tommy White
+4/15/18
+This is a subclass of GameObjects, with methods that apply specifically to the CrossHairs object,
+such as a method for firing.
  */
 
 public class CrossHairs extends GameObjects {

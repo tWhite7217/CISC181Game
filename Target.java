@@ -1,10 +1,13 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
-/**
- * Created by Ryan Petery on 4/11/2018.
+/*
+Ryan Petery and Tommy White
+4/15/18
+This is a subclass of GameObjects, with methods that apply specifically to target objects, such as
+their point values.
  */
 
-public class Target extends gameObjects {
+public class Target extends GameObjects {
 
     boolean givesHeart;
 
