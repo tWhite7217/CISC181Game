@@ -1,10 +1,17 @@
 package e.ryanpetery.java;
 
-/**
- * Created by Ryan Petery on 4/11/2018.
+/*
+Ryan Petery and Tommy White
+4/15/18
+This is a subclass of GameObjects, with methods that apply specifically to target objects, such as
+their point values.
  */
 
-public class Target extends gameObjects {
+import java.util.Random;
+
+import javax.swing.plaf.basic.BasicBorders;
+
+public class Target extends GameObjects {
 
     boolean givesHeart;
 
@@ -12,17 +19,38 @@ public class Target extends gameObjects {
 
     int size;
 
-    int speed;
 
     public Target() {
         givesHeart = false;
 
-        int size = 0;
+        Random random = new Random();
 
-        int speed = 0;
+        int randSize = random.nextInt(3);
+
+        int randYPos = random.nextInt(3);
+
+        int size = randSize;
+
+        pointValue = 4-size;
+
+        position[0] = 599;
+        position[1] = randYPos;
     }
 
-    public void goesOffScreen() {}
+    public Target(boolean heartTarget) {
+        givesHeart = heartTarget;
+
+        int size = 0;
+
+        pointValue = 0;
+
+        Random random = new Random();
+
+        int randYPos = random.nextInt(3);
+
+        position[0] = 599;
+        position[1] = randYPos + 1;
+    }
 
 
 }
