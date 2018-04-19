@@ -8,25 +8,15 @@ This implements IControls, allowing the user to input controls in the console.
 import java.util.Scanner;
 
 public class ConsoleControls implements IControls {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
-    public boolean moveLeft() {
-        return (input.next().equals("a"));
-    }
-
-    public boolean moveRight() {
-        return (input.next().equals("d"));
-    }
-
-    public boolean moveUp() {
-        return (input.next().equals("w"));
-    }
-
-    public boolean moveDown() {
-        return (input.next().equals("s"));
+    public String move() {
+        return input.nextLine();
     }
 
     public boolean fire() {
-        return (input.next().equals("f"));
+        if (input.nextLine().equals("f")) {
+            return true;
+        } else { return false; }
     }
 }

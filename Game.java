@@ -27,10 +27,11 @@ public class Game {
     }
 
     public void move() {
-        if(controls.moveUp()) {  crossHair.position[1] += 1; }
-        if(controls.moveDown()) { crossHair.position[1] -= 1; }
-        if(controls.moveLeft()) {crossHair.position[0] -= 100;}
-        if(controls.moveRight()) {crossHair.position[0] += 100;}
+        String moveString = controls.move();
+        if(moveString.equals("w")) {  crossHair.position[1] += 1; }
+        if(moveString.equals("s")) { crossHair.position[1] -= 1; }
+        if(moveString.equals("a")) {crossHair.position[0] -= 100;}
+        if(moveString.equals("d")) {crossHair.position[0] += 100;}
     }
 
     public void moveTargetsandPlanes() { //temporary move values
