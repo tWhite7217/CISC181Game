@@ -27,10 +27,27 @@ public class Game {
     }
 
     public void move() {
-        if(controls.moveUp()) {  crossHair.position[1] += 1; }
-        if(controls.moveDown()) { crossHair.position[1] -= 1; }
-        if(controls.moveLeft()) {crossHair.position[0] -= 100;}
-        if(controls.moveRight()) {crossHair.position[0] += 100;}
+        String moveString = controls.move();
+        if(moveString.equals("w")) {
+            if(crossHair.position[1] != 3) {
+                crossHair.position[1] += 1;
+            }
+        }
+        if(moveString.equals("s")) {
+            if(crossHair.position[1] != 1) {
+                crossHair.position[1] -= 1;
+            }
+        }
+        if(moveString.equals("a")) {
+            if(crossHair.position[0] != 100) {
+                crossHair.position[0] -= 100;
+            }
+        }
+        if(moveString.equals("d")) {
+            if(crossHair.position[0] != 500) {
+                crossHair.position[0] += 100;
+            }
+        }
     }
 
     public void moveTargetsandPlanes() { //temporary move values
@@ -50,22 +67,25 @@ public class Game {
         }
     }
 
-    public void isHit(){
-        for(int i = 0; i < targets.size(); i++) {
-            if(Math.abs(targets.get(i).position[0] - crossHair.position[0]) <= 0.5*(1.0/4.0 + (1.0/4.0) * ((targets.get(i).size))) && (targets.get(i).position[1] == crossHair.position[1])) {
-                if(controls.fire()) {
-                    if(targets.get(i).givesHeart) {health += 1;}
+    public void isHit() {
+        if (controls.fire()) {
+            for (int i = 0; i < targets.size(); i++) {
+                if (Math.abs(targets.get(i).position[0] - crossHair.position[0]) <= (0.5 * (25 + (25 * ((targets.get(i).size))))) && (Math.abs(targets.get(i).position[1] - crossHair.position[1])-1 < 0.1)) {
+                    if (targets.get(i).givesHeart) {
+                        health += 1;
+                    }
                     score += targets.get(i).pointValue;
                     targets.remove(i);
                     i--;
                 }
+
             }
         }
     }
 
-    public void isDetected() {
+    public void isDetected() { //vary tolerance + xpos off
         for(int i = 0; i< radarPlanes.size(); i++) {
-            if(Math.abs(radarPlanes.get(i).position[0] - crossHair.position[0]) <= 0.5*(radarPlanes.get(i).size)) {
+            if((Math.abs(radarPlanes.get(i).position[0] - crossHair.position[0]) <= 5) && (Math.abs(radarPlanes.get(i).position[1] - crossHair.position[1])-1 < 0.01)) {
                 health--;
             }
         }
@@ -88,8 +108,8 @@ public class Game {
                 targets.add(new Target(true));
             } // complete
             else {
-                int planeOrTarget = random.nextInt(1);
-                if (planeOrTarget == 0) {
+                int planeOrTarget = random.nextInt(5);
+                if (planeOrTarget != 0) {
                     targets.add(new Target());
                 } else {
                     radarPlanes.add(new RadarPlane());

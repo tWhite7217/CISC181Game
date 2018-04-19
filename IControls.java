@@ -8,13 +8,7 @@ generic control methods, the game logic can run without considering how input wi
  */
 
 public interface IControls {
-    boolean moveLeft();
-
-    boolean moveRight();
-
-    boolean moveUp();
-
-    boolean moveDown();
+    String move();
 
     boolean fire();
 }

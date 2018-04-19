@@ -22,20 +22,20 @@ public class ConsoleGraphics implements IUIEngine {
         for(int i = 0; i < targets.size(); i++) {
             int xpos = targets.get(i).position[0] / 10;
             int ypos = targets.get(i).position[1] - 1;
-            gameWorld[ypos][xpos] = "*";
+            gameWorld[ypos+1][xpos] = "*"; // error, +1 attempted fix
         }
         for(int i = 0; i < radarPlanes.size(); i++) {
             int xpos = radarPlanes.get(i).position[0] / 10;
             int ypos = radarPlanes.get(i).position[1] - 1;
-            gameWorld[ypos][xpos] = "@";
+            gameWorld[ypos+1][xpos] = "@";
 
         }
         int crossPosy = crossHairs.position[1] - 1;
         int crossPosx = crossHairs.position[0] / 10;
         gameWorld[crossPosy][crossPosx] = "+";
 
-        for(String[] row : gameWorld) {
-            for(String column : row) {
+        for(int i = gameWorld.length-1; i >= 0; i--) {
+            for (String column : gameWorld[i]) {
                 System.out.print(column);
             }
             System.out.println("");

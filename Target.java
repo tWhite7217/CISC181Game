@@ -49,7 +49,7 @@ public class Target extends GameObjects {
         int randYPos = random.nextInt(3);
 
         position[0] = 599;
-        position[1] = randYPos + 1;
+        position[1] = randYPos;
     }
 
 
