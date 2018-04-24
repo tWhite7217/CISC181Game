@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -18,8 +18,6 @@ public class ConsoleControls implements IControls {
     public boolean fire() {
         System.out.println("fire?: ");
         String fireString = input.nextLine();
-        if (fireString.equals("f")) {
-            return true;
-        } else { return false; }
+        return fireString.equals("f");
     }
 }

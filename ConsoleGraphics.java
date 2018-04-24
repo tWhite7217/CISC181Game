@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -22,12 +22,16 @@ public class ConsoleGraphics implements IUIEngine {
         for(int i = 0; i < targets.size(); i++) {
             int xpos = targets.get(i).position[0] / 10;
             int ypos = targets.get(i).position[1] - 1;
-            gameWorld[ypos+1][xpos] = "*"; // error, +1 attempted fix
+            gameWorld[ypos][xpos] = "*";
         }
         for(int i = 0; i < radarPlanes.size(); i++) {
             int xpos = radarPlanes.get(i).position[0] / 10;
             int ypos = radarPlanes.get(i).position[1] - 1;
-            gameWorld[ypos+1][xpos] = "@";
+            if (radarPlanes.get(i).hasDetected) {
+                gameWorld[ypos][xpos] = "#";
+            } else {
+                gameWorld[ypos][xpos] = "@";
+            }
 
         }
         int crossPosy = crossHairs.position[1] - 1;

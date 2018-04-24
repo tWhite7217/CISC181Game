@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -70,7 +70,8 @@ public class Game {
     public void isHit() {
         if (controls.fire()) {
             for (int i = 0; i < targets.size(); i++) {
-                if (Math.abs(targets.get(i).position[0] - crossHair.position[0]) <= (0.5 * (25 + (25 * ((targets.get(i).size))))) && (Math.abs(targets.get(i).position[1] - crossHair.position[1])-1 < 0.1)) {
+                if (Math.abs(targets.get(i).position[0] - crossHair.position[0]) <= ((25 + (25 * (targets.get(i).size)))/2) && targets.get(i).position[1] == crossHair.position[1]) {
+                    System.out.println(targets.get(i).size); // checking size, delete later
                     if (targets.get(i).givesHeart) {
                         health += 1;
                     }
@@ -85,8 +86,9 @@ public class Game {
 
     public void isDetected() { //vary tolerance + xpos off
         for(int i = 0; i< radarPlanes.size(); i++) {
-            if((Math.abs(radarPlanes.get(i).position[0] - crossHair.position[0]) <= 5) && (Math.abs(radarPlanes.get(i).position[1] - crossHair.position[1])-1 < 0.01)) {
+            if((Math.abs(radarPlanes.get(i).position[0] - crossHair.position[0]) <= 25) && radarPlanes.get(i).position[1] == crossHair.position[1] && !(radarPlanes.get(i).hasDetected)) {
                 health--;
+                radarPlanes.get(i).hasDetected = true;
             }
         }
     }

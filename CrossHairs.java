@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -10,7 +10,7 @@ such as a method for firing.
 public class CrossHairs extends GameObjects {
 
     public CrossHairs() {
-        position[0] = 300;
+        position[0] = 299;
         position[1] = 2;
     }
 
