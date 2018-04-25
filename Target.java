@@ -1,4 +1,4 @@
-package g.cisc181.game;
+package e.ryanpetery.java;
 
 /*
 Ryan Petery and Tommy White
@@ -19,17 +19,17 @@ public class Target extends GameObjects {
 
     int size;
 
+    Random random = new Random();
+
 
     public Target() {
         givesHeart = false;
 
-        Random random = new Random();
-
         int randYPos = random.nextInt(3)+1;
 
-        int size = random.nextInt(3);
+        size = random.nextInt(3);
 
-        pointValue = 4-size;
+        pointValue = 3-size;
 
         position[0] = 599;
         position[1] = randYPos;
@@ -42,11 +42,10 @@ public class Target extends GameObjects {
 
         pointValue = 0;
 
-        Random random = new Random();
-
         int randYPos = random.nextInt(3)+1;
 
         position[0] = 599;
+
         position[1] = randYPos;
     }
 

@@ -1,4 +1,4 @@
-package g.cisc181.game;
+package e.ryanpetery.java;
 
 /*
 Ryan Petery and Tommy White
@@ -71,7 +71,6 @@ public class Game {
         if (controls.fire()) {
             for (int i = 0; i < targets.size(); i++) {
                 if (Math.abs(targets.get(i).position[0] - crossHair.position[0]) <= ((25 + (25 * (targets.get(i).size)))/2) && targets.get(i).position[1] == crossHair.position[1]) {
-                    System.out.println(targets.get(i).size); // checking size, delete later
                     if (targets.get(i).givesHeart) {
                         health += 1;
                     }

@@ -1,4 +1,4 @@
-package g.cisc181.game;
+package e.ryanpetery.java;
 
 /*
 Ryan Petery and Tommy White
