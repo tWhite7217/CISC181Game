@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -8,6 +8,8 @@ This class implement IUIEngine, allowing the game to be displayed in the console
 import java.util.ArrayList;
 
 public class ConsoleGraphics implements IUIEngine {
+    public void setGame(Game game){}
+
     public void showIntro() {
         System.out.println("game started");
         System.out.println("");
@@ -23,19 +25,26 @@ public class ConsoleGraphics implements IUIEngine {
             int xpos = targets.get(i).position[0] / 10;
             int ypos = targets.get(i).position[1] - 1;
             gameWorld[ypos][xpos] = "*";
+            if(targets.get(i).givesHeart) {
+                gameWorld[ypos][xpos] = "H";
+            }
         }
         for(int i = 0; i < radarPlanes.size(); i++) {
             int xpos = radarPlanes.get(i).position[0] / 10;
             int ypos = radarPlanes.get(i).position[1] - 1;
-            gameWorld[ypos][xpos] = "@";
+            if (radarPlanes.get(i).hasDetected) {
+                gameWorld[ypos][xpos] = "#";
+            } else {
+                gameWorld[ypos][xpos] = "@";
+            }
 
         }
         int crossPosy = crossHairs.position[1] - 1;
         int crossPosx = crossHairs.position[0] / 10;
         gameWorld[crossPosy][crossPosx] = "+";
 
-        for(String[] row : gameWorld) {
-            for(String column : row) {
+        for(int i = gameWorld.length-1; i >= 0; i--) {
+            for (String column : gameWorld[i]) {
                 System.out.print(column);
             }
             System.out.println("");
