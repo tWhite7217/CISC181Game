@@ -1,32 +1,29 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
 4/15/18
 This implements IControls, allowing the user to input controls in the console.
  */
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 public class ConsoleControls implements IControls {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
-    public boolean moveLeft() {
-        return (input.next().equals("a"));
-    }
+    public void setInput(String newInput) {};
 
-    public boolean moveRight() {
-        return (input.next().equals("d"));
-    }
-
-    public boolean moveUp() {
-        return (input.next().equals("w"));
-    }
-
-    public boolean moveDown() {
-        return (input.next().equals("s"));
+    public String move() {
+        System.out.println("move?: ");
+        return input.nextLine();
     }
 
     public boolean fire() {
-        return (input.next().equals("f"));
+        System.out.println("fire?: ");
+        String fireString = input.nextLine();
+        return fireString.equals("f");
     }
+
+    public void keyPressed(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {}
 }

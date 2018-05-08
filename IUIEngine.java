@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -11,6 +11,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 interface IUIEngine {
+    void setGame(Game game);
     void showIntro();
     void updateUI(ArrayList<Target> targets, ArrayList<RadarPlane> radarPlanes, CrossHairs crossHairs);
     void showScore(int score);
