@@ -7,17 +7,13 @@ This interface allows the Game class to work separately from control implementat
 generic control methods, the game logic can run without considering how input will occur.
  */
 
-import java.awt.event.KeyEvent;
-
 public interface IControls {
+
+    String getInput();
 
     void setInput(String newInput);
 
     String move();
 
     boolean fire();
-
-    void keyPressed(KeyEvent e);
-
-    void keyReleased(KeyEvent e);
 }

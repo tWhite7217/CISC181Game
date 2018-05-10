@@ -14,6 +14,7 @@ public class CrossHairs extends GameObjects {
         position[1] = 2;
     }
 
-    public void move() {}
+    public void move() {
+    }
 
 }

@@ -22,8 +22,7 @@ public class Target extends GameObjects {
 
         if (heartTarget) {
             pointValue = 0;
-        }
-        else {
+        } else {
             pointValue = 3 - size;
         }
         position[0] = 599;

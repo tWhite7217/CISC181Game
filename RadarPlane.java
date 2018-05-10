@@ -6,8 +6,6 @@ Ryan Petery and Tommy White
 This is a subclass of GameObjects, with methods that apply specifically to radar plane objects.
  */
 
-import java.util.Random;
-
 public class RadarPlane extends GameObjects {
 
     boolean hasDetected;

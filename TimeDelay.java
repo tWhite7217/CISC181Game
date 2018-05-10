@@ -6,14 +6,15 @@ package g.cisc181.game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class TimeDelay extends JPanel implements ActionListener {
 
+    private final int DELAY = 50;
     private Timer timer;
     private Game game;
-    private final int DELAY = 50;
     private int count;
 
     public TimeDelay(Game game) {
@@ -28,14 +29,20 @@ public class TimeDelay extends JPanel implements ActionListener {
             game.tick(count);
             if (count < 11) {
                 count++;
-            }
-            else {
+            } else {
                 count = 0;
             }
-        }
-        else {
-            game.getUiEngine().showScore(game.getScore());
+            if (timer.getDelay() > 20) {
+                timer.setDelay(50 - game.getScore() / 5);
+            }
+        } else if (game.getControls().getInput() == "q") {
             System.exit(0);
+        } else if (game.getControls().getInput() == "r") {
+            timer.stop();
+            game.getUiEngine().closeWindow();
+            game.startGame();
+        } else {
+            game.getUiEngine().showScore(game.getScore());
         }
     }
 
