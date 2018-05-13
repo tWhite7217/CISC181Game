@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -6,19 +6,15 @@ Ryan Petery and Tommy White
 This is a subclass of GameObjects, with methods that apply specifically to radar plane objects.
  */
 
-import java.util.Random;
-
 public class RadarPlane extends GameObjects {
 
-    public RadarPlane() {
-        size = 1;
+    boolean hasDetected;
 
-        Random random = new Random();
-
-        int randYPos = random.nextInt(3);
+    public RadarPlane(int size, int yPos) {
+        this.size = size;
 
         position[0] = 599;
-        position[1] = randYPos;
+        position[1] = yPos;
 
     }
 

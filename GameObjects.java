@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -10,7 +10,4 @@ public class GameObjects {
     int[] position = new int[2];
 
     int size;
-
-    public void move(String direction) {}
-
 }

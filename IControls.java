@@ -1,4 +1,4 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
@@ -8,13 +8,12 @@ generic control methods, the game logic can run without considering how input wi
  */
 
 public interface IControls {
-    boolean moveLeft();
 
-    boolean moveRight();
+    String getInput();
 
-    boolean moveUp();
+    void setInput(String newInput);
 
-    boolean moveDown();
+    String move();
 
     boolean fire();
 }
