@@ -2,7 +2,7 @@ package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
-4/15/18
+5/14/18
 Graphical controls implements IControls, acting as the controls class when the game is played using
 Java's Swing graphics.
  */

@@ -2,13 +2,14 @@ package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
-5/11/18
+5/14/18
 This class implements ActionListener. The class allows the game to wait a certain amount of time
 before updating.
 */
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Timer;
 
 public class TimeDelay implements ActionListener {

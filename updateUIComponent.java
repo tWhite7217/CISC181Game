@@ -1,13 +1,14 @@
 package g.cisc181.game;
 /*
 Ryan Petery and Tommy White
-5/11/18
+5/14/18
 This class extends JComponent to draw the current state of the game.
  */
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+
 import javax.swing.JComponent;
 
 public class updateUIComponent extends JComponent {

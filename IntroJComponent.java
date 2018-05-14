@@ -2,7 +2,7 @@ package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
-5/11/18
+5/14/18
 This class extends JComponent and draws an introductory screen.
 */
 

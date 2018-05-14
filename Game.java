@@ -2,7 +2,7 @@ package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
-4/15/18
+5/14/18
 This class contains the logic for the game and is the main class that starts a new game.
  */
 
