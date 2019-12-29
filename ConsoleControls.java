@@ -1,32 +1,61 @@
-package e.ryanpetery.java;
+package g.cisc181.game;
 
 /*
 Ryan Petery and Tommy White
-4/15/18
+5/14/18
 This implements IControls, allowing the user to input controls in the console.
  */
+
 import java.util.Scanner;
 
 public class ConsoleControls implements IControls {
-    Scanner input = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
+    private String input;
 
-    public boolean moveLeft() {
-        return (input.next().equals("a"));
+    /*
+    getInput uses a Scanner object to return a String that will determine if the game should end or be restarted
+    Input: String (Scanner input)
+    Output: A String specifying a command
+    Side effects: none
+     */
+    public String getInput() {
+        System.out.println("Enter q to quit or enter r to play again.");
+        return scan.nextLine();
     }
 
-    public boolean moveRight() {
-        return (input.next().equals("d"));
+    /*
+    setInput is a simple setter method that can change the private field input in this class
+    Input: String
+    Output: none
+    Side effects: changes the value of the private field input
+     */
+    public void setInput(String newInput) {
+        input = newInput;
     }
 
-    public boolean moveUp() {
-        return (input.next().equals("w"));
+    /*
+    move uses a Scanner object to return a String that will be read by Game to determine how the
+    crossHairs should move
+    Input: String (Scanner input)
+    Output: A String specifying a direction
+    Side effects: changes the position of the crossHairs object (indirectly)
+     */
+    public String move() {
+        System.out.println("move?: ");
+        input = scan.nextLine();
+        return input;
     }
 
-    public boolean moveDown() {
-        return (input.next().equals("s"));
-    }
-
+    /*
+    fire uses a Scanner to return a boolean that will be read by Game to determine if the player has
+    fired
+    Input: String (Scanner input)
+    Output: A boolean specifying whether the player fired
+    Side effects: May remove a target from the targets ArrayList in Game
+     */
     public boolean fire() {
-        return (input.next().equals("f"));
+        System.out.println("fire?: ");
+        input = scan.nextLine();
+        return input.equals("f");
     }
 }
